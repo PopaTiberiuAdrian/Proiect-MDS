@@ -12,4 +12,12 @@ public class AssaultRifle : Shooter {
 
         }
     }
+
+    public void Update()
+    {
+        if(GameManager.Instance.InputController.Reload)
+        {
+            Reload();
+        }
+    }
 }

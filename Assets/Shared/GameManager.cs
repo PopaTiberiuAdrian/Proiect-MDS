@@ -35,7 +35,7 @@ public class GameManager {
     }
 
     private Timer m_Timer;
-    public Timer timer
+    public Timer Timer
     {
         get
         {
