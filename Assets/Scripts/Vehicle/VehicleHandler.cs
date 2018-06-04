@@ -45,4 +45,23 @@ public class VehicleHandler : MonoBehaviour {
             }
         }
     }
+
+    void Update()
+    {
+        if(isInVehicle == true)
+        if (isInVehicle == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Vehicle.transform.Find("Camera Controller").gameObject.SetActive(false);
+            Vehicle.GetComponent<VehicleStandardInput>().enabled = false;
+            gameObject.GetComponent<Player>().enabled = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = true;
+            gameObject.GetComponent<PlayerAnimation>().enabled = true;
+            gameObject.GetComponent<PlayerShoot>().enabled = true;
+            gameObject.GetComponent<MoveController>().enabled = true;
+            SetChildren(true);
+            playerCamera.SetActive(true);
+            transform.parent = null;
+            isInVehicle = false;
+        }
+    }
 }
