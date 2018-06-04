@@ -44,6 +44,16 @@ public class VehicleHandler : MonoBehaviour {
                 Debug.Log("I'm attached to " + newVehicle.gameObject.name);
             }
         }
+        else
+            if(newVehicle.gameObject.tag == "Vehicle" && Input.GetKeyDown(KeyCode.B) && isInVehicle == false)
+            {
+                Vehicle = newVehicle.transform.parent.transform.parent.gameObject;
+                if(Vehicle.GetComponent<MoneyCollectorFromVehicle>().getPrice() < GetComponent<PlayerStats>().getAmountOfMoney())
+                {
+                    GetComponent<PlayerStats>().decreaseAmountOfMoney(Vehicle.GetComponent<MoneyCollectorFromVehicle>().getPrice());
+                    Vehicle.GetComponent<MoneyCollectorFromVehicle>().Unlock();
+                }
+            }
     }
 
     void Update()
