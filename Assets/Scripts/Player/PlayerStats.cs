@@ -34,5 +34,14 @@ public class PlayerStats : MonoBehaviour {
         amountOfMoney -= dec;
         return true;
     }
-
+	
+	 void OnTriggerEnter(Collider objectCollided)
+    {
+        if (objectCollided.gameObject.tag == "Money")
+        {
+            int moneyToAdd = objectCollided.gameObject.GetComponent<ScoreBehaviour>().getValue();
+            objectCollided.gameObject.SetActive(false);
+            increaseAmountOfMoney(moneyToAdd);
+        }
+    }
 }
